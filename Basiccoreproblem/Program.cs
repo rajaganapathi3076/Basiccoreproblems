@@ -10,44 +10,37 @@ namespace Basiccoreproblem
     {
         static void Main()
         {
-            Console.WriteLine("Welcome to hormonic number UC4");
-            Console.WriteLine("Enter the value of n:");
+            Console.WriteLine("Welcome to Prime factor UC4");
+            Console.WriteLine("Enter the number:");
             string input = Console.ReadLine();
 
-            if (int.TryParse(input, out int n))
+            if (long.TryParse(input, out long N))
             {
-                if (n > 0)
-                {
-                    Console.WriteLine("Harmonic Numbers:");
-
-                    for (int i = 1; i <= n; i++)
-                    {
-                        double harmonicNumber = CalculateHarmonicNumber(i);
-                        Console.WriteLine($"H{i} = {harmonicNumber}");
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Invalid input. n should be a positive integer.");
-                }
+                Console.WriteLine($"Prime factors of {N}:");
+                ComputePrimeFactors(N);
             }
             else
             {
-                Console.WriteLine("Invalid input. Please enter an integer.");
+                Console.WriteLine("Invalid input. Please enter a number.");
             }
         }
 
-        static double CalculateHarmonicNumber(int n)
+        static void ComputePrimeFactors(long N)
         {
-            double harmonicNumber = 0.0;
-
-            for (int i = 1; i <= n; i++)
+            for (long i = 2; i * i <= N; i++)
             {
-                harmonicNumber += 1.0 / i;
+                while (N % i == 0)
+                {
+                    Console.WriteLine(i);
+                    N /= i;
+                }
             }
 
-            return harmonicNumber;
+            if (N > 1)
+            {
+                Console.WriteLine(N);
+            }
         }
+
     }
-    
 }
