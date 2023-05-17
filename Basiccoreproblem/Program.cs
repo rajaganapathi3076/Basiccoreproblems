@@ -10,38 +10,22 @@ namespace Basiccoreproblem
     {
         static void Main()
         {
-            Console.WriteLine("Enter the number of times to flip the coin:");
-            string input = Console.ReadLine();
-            int numberOfFlips;
+            Console.WriteLine("Welcome to Leap year problem UC2");
+            Console.WriteLine("Enter the number of  x:");
+            int year = Convert.ToInt32(Console.ReadLine());
 
-            if (int.TryParse(input, out numberOfFlips) && numberOfFlips > 0)
+
+
+            if (((year % 4 == 0) && ((year % 400 == 0) || (year % 100 != 0))))
             {
-                int headsCount = 0;
-                int tailsCount = 0;
+                Console.WriteLine("This is leap year");
 
-                Random random = new Random();
-
-                for (int i = 0; i < numberOfFlips; i++)
-                {
-                    if (random.NextDouble() < 0.5)
-                    {
-                        tailsCount++;
-                    }
-                    else
-                    {
-                        headsCount++;
-                    }
-                }
-
-                double headsPercentage = (double)headsCount / numberOfFlips * 100;
-                double tailsPercentage = (double)tailsCount / numberOfFlips * 100;
-
-                Console.WriteLine($"Heads: {headsCount} ({headsPercentage}%)\nTails: {tailsCount} ({tailsPercentage}%)");
             }
             else
             {
-                Console.WriteLine("Invalid input. Please enter a positive integer.");
+                Console.WriteLine("This is not leap year");
             }
+            Console.ReadLine();
         }
     }
 }
