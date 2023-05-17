@@ -8,24 +8,38 @@ namespace Basiccoreproblem
 {
     internal class Program
     {
+        static bool IsPowerOfTwo(int number)
+        {
+            if (number <= 0)
+            {
+                return false; // Numbers less than or equal to 0 are not powers of 2
+            }
+
+            return (number & (number - 1)) == 0;
+        }
+
         static void Main()
         {
-            Console.WriteLine("Welcome to Leap year problem UC2");
-            Console.WriteLine("Enter the number of  x:");
-            int year = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter a number:");
+            string input = Console.ReadLine();
 
-
-
-            if (((year % 4 == 0) && ((year % 400 == 0) || (year % 100 != 0))))
+            if (int.TryParse(input, out int number))
             {
-                Console.WriteLine("This is leap year");
+                bool isPowerOfTwo = IsPowerOfTwo(number);
 
+                if (isPowerOfTwo)
+                {
+                    Console.WriteLine($"{number} is a power of 2.");
+                }
+                else
+                {
+                    Console.WriteLine($"{number} is not a power of 2.");
+                }
             }
             else
             {
-                Console.WriteLine("This is not leap year");
+                Console.WriteLine("Invalid input. Please enter an integer.");
             }
-            Console.ReadLine();
         }
     }
 }
