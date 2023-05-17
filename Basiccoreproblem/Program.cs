@@ -10,30 +10,46 @@ namespace Basiccoreproblem
     {
         static void Main()
         {
-            Console.WriteLine("Welcome to Even and odd number UC8");
-            Console.WriteLine("Enter a number:");
-            string numberInput = Console.ReadLine();
+            Console.WriteLine("Welcome to Alphabet is Vowel or Consonant UC9");
+            Console.WriteLine("Enter an alphabet:");
+            string input = Console.ReadLine();
 
-            if (int.TryParse(numberInput, out int number))
+            if (input.Length == 1)
             {
-                if (IsEven(number))
+                char alphabet = char.ToLower(input[0]);
+
+                if (IsAlphabet(alphabet))
                 {
-                    Console.WriteLine($"{number} is even.");
+                    if (IsVowel(alphabet))
+                    {
+                        Console.WriteLine($"{alphabet} is a vowel.");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"{alphabet} is a consonant.");
+                    }
                 }
                 else
                 {
-                    Console.WriteLine($"{number} is odd.");
+                    Console.WriteLine("Invalid input. Please enter a valid alphabet.");
                 }
             }
             else
             {
-                Console.WriteLine("Invalid input. Please enter an integer.");
+                Console.WriteLine("Invalid input. Please enter a single alphabet.");
             }
         }
 
-        static bool IsEven(int number)
+        static bool IsAlphabet(char character)
         {
-            return number % 2 == 0;
+            return char.IsLetter(character);
+        }
+
+        static bool IsVowel(char alphabet)
+        {
+            alphabet = char.ToLower(alphabet);
+
+            return alphabet == 'a' || alphabet == 'e' || alphabet == 'i' || alphabet == 'o' || alphabet == 'u';
         }
     }
 
