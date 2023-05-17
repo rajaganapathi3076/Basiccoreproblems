@@ -10,6 +10,7 @@ namespace Basiccoreproblem
     {
         static bool IsPowerOfTwo(int number)
         {
+            
             if (number <= 0)
             {
                 return false; // Numbers less than or equal to 0 are not powers of 2
@@ -20,6 +21,7 @@ namespace Basiccoreproblem
 
         static void Main()
         {
+            Console.WriteLine("Welcome to power of two UC3");
             Console.WriteLine("Enter a number:");
             string input = Console.ReadLine();
 
