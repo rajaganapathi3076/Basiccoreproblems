@@ -10,35 +10,24 @@ namespace Basiccoreproblem
     {
         static void Main()
         {
-            Console.WriteLine("Welcome to Prime factor UC4");
-            Console.WriteLine("Enter the number:");
-            string input = Console.ReadLine();
+            Console.WriteLine("Welcome to Compute Quotient and Remainder UC6");
+            Console.WriteLine("Enter the dividend:");
+            string dividendInput = Console.ReadLine();
 
-            if (long.TryParse(input, out long N))
+            Console.WriteLine("Enter the divisor:");
+            string divisorInput = Console.ReadLine();
+
+            if (int.TryParse(dividendInput, out int dividend) && int.TryParse(divisorInput, out int divisor))
             {
-                Console.WriteLine($"Prime factors of {N}:");
-                ComputePrimeFactors(N);
+                int quotient = dividend / divisor;
+                int remainder = dividend % divisor;
+
+                Console.WriteLine($"Quotient: {quotient}");
+                Console.WriteLine($"Remainder: {remainder}");
             }
             else
             {
-                Console.WriteLine("Invalid input. Please enter a number.");
-            }
-        }
-
-        static void ComputePrimeFactors(long N)
-        {
-            for (long i = 2; i * i <= N; i++)
-            {
-                while (N % i == 0)
-                {
-                    Console.WriteLine(i);
-                    N /= i;
-                }
-            }
-
-            if (N > 1)
-            {
-                Console.WriteLine(N);
+                Console.WriteLine("Invalid input. Please enter integers for both dividend and divisor.");
             }
         }
 
