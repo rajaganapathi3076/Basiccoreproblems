@@ -8,34 +8,27 @@ namespace Basiccoreproblem
 {
     internal class Program
     {
-        static bool IsPowerOfTwo(int number)
-        {
-            
-            if (number <= 0)
-            {
-                return false; // Numbers less than or equal to 0 are not powers of 2
-            }
-
-            return (number & (number - 1)) == 0;
-        }
-
         static void Main()
         {
-            Console.WriteLine("Welcome to power of two UC3");
-            Console.WriteLine("Enter a number:");
+            Console.WriteLine("Welcome to hormonic number UC4");
+            Console.WriteLine("Enter the value of n:");
             string input = Console.ReadLine();
 
-            if (int.TryParse(input, out int number))
+            if (int.TryParse(input, out int n))
             {
-                bool isPowerOfTwo = IsPowerOfTwo(number);
-
-                if (isPowerOfTwo)
+                if (n > 0)
                 {
-                    Console.WriteLine($"{number} is a power of 2.");
+                    Console.WriteLine("Harmonic Numbers:");
+
+                    for (int i = 1; i <= n; i++)
+                    {
+                        double harmonicNumber = CalculateHarmonicNumber(i);
+                        Console.WriteLine($"H{i} = {harmonicNumber}");
+                    }
                 }
                 else
                 {
-                    Console.WriteLine($"{number} is not a power of 2.");
+                    Console.WriteLine("Invalid input. n should be a positive integer.");
                 }
             }
             else
@@ -43,5 +36,18 @@ namespace Basiccoreproblem
                 Console.WriteLine("Invalid input. Please enter an integer.");
             }
         }
+
+        static double CalculateHarmonicNumber(int n)
+        {
+            double harmonicNumber = 0.0;
+
+            for (int i = 1; i <= n; i++)
+            {
+                harmonicNumber += 1.0 / i;
+            }
+
+            return harmonicNumber;
+        }
     }
+    
 }
