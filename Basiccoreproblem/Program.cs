@@ -10,29 +10,32 @@ namespace Basiccoreproblem
     {
         static void Main()
         {
-            Console.WriteLine("Welcome to Swap number UC7");
-            Console.WriteLine("Enter the first number:");
-            string firstNumberInput = Console.ReadLine();
+            Console.WriteLine("Welcome to Even and odd number UC8");
+            Console.WriteLine("Enter a number:");
+            string numberInput = Console.ReadLine();
 
-            Console.WriteLine("Enter the second number:");
-            string secondNumberInput = Console.ReadLine();
-
-            if (int.TryParse(firstNumberInput, out int firstNumber) && int.TryParse(secondNumberInput, out int secondNumber))
+            if (int.TryParse(numberInput, out int number))
             {
-                Console.WriteLine($"Before swapping: First Number = {firstNumber}, Second Number = {secondNumber}");
-
-
-                int temp = firstNumber;
-                firstNumber = secondNumber;
-                secondNumber = temp;
-
-                Console.WriteLine($"After swapping: First Number = {firstNumber}, Second Number = {secondNumber}");
+                if (IsEven(number))
+                {
+                    Console.WriteLine($"{number} is even.");
+                }
+                else
+                {
+                    Console.WriteLine($"{number} is odd.");
+                }
             }
             else
             {
-                Console.WriteLine("Invalid input. Please enter integers for both numbers.");
+                Console.WriteLine("Invalid input. Please enter an integer.");
             }
         }
 
+        static bool IsEven(int number)
+        {
+            return number % 2 == 0;
+        }
     }
+
+    
 }
