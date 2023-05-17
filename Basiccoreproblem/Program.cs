@@ -10,24 +10,27 @@ namespace Basiccoreproblem
     {
         static void Main()
         {
-            Console.WriteLine("Welcome to Compute Quotient and Remainder UC6");
-            Console.WriteLine("Enter the dividend:");
-            string dividendInput = Console.ReadLine();
+            Console.WriteLine("Welcome to Swap number UC7");
+            Console.WriteLine("Enter the first number:");
+            string firstNumberInput = Console.ReadLine();
 
-            Console.WriteLine("Enter the divisor:");
-            string divisorInput = Console.ReadLine();
+            Console.WriteLine("Enter the second number:");
+            string secondNumberInput = Console.ReadLine();
 
-            if (int.TryParse(dividendInput, out int dividend) && int.TryParse(divisorInput, out int divisor))
+            if (int.TryParse(firstNumberInput, out int firstNumber) && int.TryParse(secondNumberInput, out int secondNumber))
             {
-                int quotient = dividend / divisor;
-                int remainder = dividend % divisor;
+                Console.WriteLine($"Before swapping: First Number = {firstNumber}, Second Number = {secondNumber}");
 
-                Console.WriteLine($"Quotient: {quotient}");
-                Console.WriteLine($"Remainder: {remainder}");
+
+                int temp = firstNumber;
+                firstNumber = secondNumber;
+                secondNumber = temp;
+
+                Console.WriteLine($"After swapping: First Number = {firstNumber}, Second Number = {secondNumber}");
             }
             else
             {
-                Console.WriteLine("Invalid input. Please enter integers for both dividend and divisor.");
+                Console.WriteLine("Invalid input. Please enter integers for both numbers.");
             }
         }
 
