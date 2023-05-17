@@ -10,46 +10,32 @@ namespace Basiccoreproblem
     {
         static void Main()
         {
-            Console.WriteLine("Welcome to Alphabet is Vowel or Consonant UC9");
-            Console.WriteLine("Enter an alphabet:");
-            string input = Console.ReadLine();
+            Console.WriteLine("Welcome to Checking large number UC10");
+            Console.WriteLine("Enter the first number:");
+            string firstNumberInput = Console.ReadLine();
 
-            if (input.Length == 1)
+            Console.WriteLine("Enter the second number:");
+            string secondNumberInput = Console.ReadLine();
+
+            Console.WriteLine("Enter the third number:");
+            string thirdNumberInput = Console.ReadLine();
+
+            if (int.TryParse(firstNumberInput, out int firstNumber) &&
+                int.TryParse(secondNumberInput, out int secondNumber) &&
+                int.TryParse(thirdNumberInput, out int thirdNumber))
             {
-                char alphabet = char.ToLower(input[0]);
-
-                if (IsAlphabet(alphabet))
-                {
-                    if (IsVowel(alphabet))
-                    {
-                        Console.WriteLine($"{alphabet} is a vowel.");
-                    }
-                    else
-                    {
-                        Console.WriteLine($"{alphabet} is a consonant.");
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Invalid input. Please enter a valid alphabet.");
-                }
+                int largestNumber = FindLargestNumber(firstNumber, secondNumber, thirdNumber);
+                Console.WriteLine($"The largest number among {firstNumber}, {secondNumber}, and {thirdNumber} is: {largestNumber}");
             }
             else
             {
-                Console.WriteLine("Invalid input. Please enter a single alphabet.");
+                Console.WriteLine("Invalid input. Please enter integers for all three numbers.");
             }
         }
 
-        static bool IsAlphabet(char character)
+        static int FindLargestNumber(int a, int b, int c)
         {
-            return char.IsLetter(character);
-        }
-
-        static bool IsVowel(char alphabet)
-        {
-            alphabet = char.ToLower(alphabet);
-
-            return alphabet == 'a' || alphabet == 'e' || alphabet == 'i' || alphabet == 'o' || alphabet == 'u';
+            return Math.Max(Math.Max(a, b), c);
         }
     }
 
